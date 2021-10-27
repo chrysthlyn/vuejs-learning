@@ -21,6 +21,11 @@ const routes = [
     name: "Profile",
     component: () => import("../views/Profile.vue"),
   },
+  {
+    path: "/todolist",
+    name: "Todolist",
+    component: () => import("../views/Todolist.vue"),
+  },
 ];
 
 const router = createRouter({
