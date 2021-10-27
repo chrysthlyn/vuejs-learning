@@ -15,21 +15,7 @@
                 v-bind:key="myTask.id"
                 class="task col-lg-12 mb-2 text-start"
               >
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    class="form-check-label item"
-                    v-bind:class="{ 'item-completed': myTask.isDone }"
-                    for="flexCheckDefault"
-                  >
-                    {{ myTask.taskName }}
-                  </label>
-                </div>
+                <TaskItem v-bind:myTask="myTask" />
               </div>
             </div>
           </div>
@@ -41,6 +27,8 @@
 
 <script>
 import "bootstrap/dist/css/bootstrap.css";
+
+import TaskItem from "../components/TaskItem.vue";
 
 export default {
   name: "Todolist",
@@ -75,7 +63,9 @@ export default {
       ],
     };
   },
-  components: {},
+  components: {
+    TaskItem,
+  },
 };
 </script>
 
