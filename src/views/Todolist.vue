@@ -11,7 +11,7 @@
           <div class="homework">
             <div class="row">
               <div
-                v-for="myTask in task"
+                v-for="myTask in tasks"
                 v-bind:key="myTask.id"
                 class="task col-lg-12 mb-2 text-start"
               >
@@ -22,7 +22,11 @@
                     value=""
                     id="flexCheckDefault"
                   />
-                  <label class="form-check-label item" for="flexCheckDefault">
+                  <label
+                    class="form-check-label item"
+                    v-bind:class="{ 'item-completed': myTask.isDone }"
+                    for="flexCheckDefault"
+                  >
                     {{ myTask.taskName }}
                   </label>
                 </div>
@@ -42,26 +46,31 @@ export default {
   name: "Todolist",
   data: function () {
     return {
-      task: [
+      tasks: [
         {
           id: 1,
           taskName: "Bangun Tidur",
+          isDone: false,
         },
         {
           id: 2,
           taskName: "Membersihkan Rumah",
+          isDone: false,
         },
         {
           id: 3,
           taskName: "Belanja Makanan",
+          isDone: false,
         },
         {
           id: 4,
           taskName: "Belajar",
+          isDone: false,
         },
         {
           id: 5,
           taskName: "Tidur",
+          isDone: false,
         },
       ],
     };
@@ -81,5 +90,8 @@ export default {
 
 .task .item {
   font-size: 18px;
+}
+.item-completed {
+  text-decoration: line-through;
 }
 </style>
